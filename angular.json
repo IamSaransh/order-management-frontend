@@ -1,11 +1,18 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "9fd9ad52-b3c7-4b27-a9d6-6a641e5cf826"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "return-order-management-client": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -98,7 +105,5 @@
       }
     }
   },
-  "cli": {
-    "analytics": "541bde12-76e1-457f-8c5e-ee30983765cc"
-  }
+  "defaultProject": "return-order-management-client"
 }
