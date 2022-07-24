@@ -24,14 +24,14 @@ export class AuthenticationService {
      
   }
 
-  public register(user: User): Observable<User | HttpErrorResponse>{
-    return this.http.post<User | HttpErrorResponse>
-      (`${this.host}/authorization-service/auth/v1/register`, user);
+  public register(user: User): Observable<User>{
+    return this.http.post<User>  (`${this.host}/auth/v1/register`, user);
+      // (`${this.host}/authorization-service/auth/v1/register`, user);
   }
 
   //TODO: add method and model for this as well!
-  public authenticate(user: User): Observable<HttpResponse<any> | HttpErrorResponse>{
-    return this.http.post<User | HttpErrorResponse>
+  public authenticate(user: User): Observable<HttpResponse<any>>{
+    return this.http.post<User>
       (`${this.host}/authorization-service/auth/v1/authenticate`, user, {observe: 'response'});
   }
 

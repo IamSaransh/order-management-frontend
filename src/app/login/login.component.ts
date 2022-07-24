@@ -51,12 +51,14 @@ export class LoginComponent implements OnInit, OnDestroy {
   // }
   public onLogin(user: User): void {
     this.showLoading = true;
+    this.subscriptions.push(
       this.authenticationService.login(user).subscribe({
         next: (response: HttpResponse<User>)  => {
                 console.log(response)
-                const token = response.headers.get('Jwt-Token') || "";
-                this.authenticationService.saveToken(token);
-                this.authenticationService.addUserToLocalCache(response.body || "");
+                const token = response.headers.get(HeaderType.JWT_TOKEN);
+                console.log("TOKEN = " + token);
+                this.authenticationService.saveToken(token!);
+                this.authenticationService.addUserToLocalCache(response.body!);
                 this.router.navigateByUrl('/user/management');
                 this.showLoading= false;
                },
@@ -65,12 +67,14 @@ export class LoginComponent implements OnInit, OnDestroy {
                 this.sendErrorNotification(NotificationType.ERROR,errorResponse.error.message );
                 this.showLoading= false;
         }
-      }); 
+      })
+    );
   }
 
 
   private sendErrorNotification(notificationType: NotificationType, message: string): void {
     if (message) {
+      console.log(message);
       this.notificationService.notify(notificationType, message);
     } else {
       this.notificationService.notify(notificationType, 'An error occurred. Please try again.');
