@@ -13,6 +13,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { UserComponent } from './user/user.component';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     HttpClientModule,
     NotificationModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [AuthenticationGuard, AuthenticationService , NotificationService, 
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi:true}],
