@@ -22,6 +22,7 @@ export class AuthenticationGuard implements CanActivate {
   }
 
   private isUserLoggedIn(): boolean {
+    console.log("can activate called in auth service");
     if(this.authenticationService.isLoggedIn()){
       return true;
     }

@@ -13,6 +13,7 @@ export class AuthenticationService {
   public host: string = environment.apiUrl;
   private token: string = "";
   private loggedInUsername: string = "";
+  private _isLoggedIn: boolean = false;
   private jwtHelper = new JwtHelperService();
 
   constructor( private http: HttpClient) { 
