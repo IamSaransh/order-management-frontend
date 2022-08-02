@@ -1,5 +1,35 @@
-body{
+body {
     background-image: url(https://raw.githubusercontent.com/IamSaransh/Caramel_admin_dashboard/master/img/login_page.png);
-    width:100%;
-    height: 100%;
+    width:100vw;
+    height: 100vh;
 }
+
+
+:host {
+  
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.mat-stepper-horizontal {
+  margin: auto ;
+}
+
+.mat-form-field {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+  
+}
+
+.container .mat-card{
+  background-color: #ADD8E6;
+  
+  margin: 8px;
+}
+

@@ -1,3 +1,65 @@
-<body>
-    <p>user works!</p>
-</body>
+<mat-stepper [linear]="isLinear" #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+
+
+    <form [formGroup]="firstFormGroup" >
+      <ng-template matStepLabel>Fill out Component Details</ng-template>
+      <div class="div" >
+      <mat-form-field appearance="fill">
+        <mat-label>Component Name</mat-label>
+        <input matInput>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Component Type</mat-label>
+        <mat-select>
+          <mat-option value="one">Integral Item</mat-option>
+          <mat-option value="two">Accessory</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Quantity</mat-label>
+        <input matInput>
+      </mat-form-field>
+    </div>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+
+
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup" label="Get Price Estimation">
+
+    <form [formGroup]="secondFormGroup">
+      <div class="container ">
+        <mat-card-title>Total Estimates for your order</mat-card-title>
+        <mat-card> requestId </mat-card> 
+        <mat-card> processingCharge </mat-card> 
+        <mat-card> packagingAndDeliveryCharge </mat-card> 
+        <mat-card> dateOfDelivery </mat-card> 
+      </div>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+
+
+
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Enter Payment Details</ng-template>
+    <mat-form-field appearance="fill">
+      <mat-label>Card Number</mat-label>
+      <input matInput>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Card Limit</mat-label>
+        <input matInput>
+    </mat-form-field>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-stepper>

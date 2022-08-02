@@ -9,18 +9,25 @@ import { AuthInterceptor } from './interceptor/auth.interceptor';
 import { AuthenticationGuard } from './guard/authentication.guard';
 import { NotificationModule } from './notification.module';
 import { NotificationService } from './service/notification.service';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './views/login/login.component';
+import { RegisterComponent } from './views/register/register.component';
 import { UserComponent } from './user/user.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material.module';
+import { HomeComponent } from './views/home/home.component';
+import { ProfileComponent } from './profile/profile.component';
+import { OrdersComponent } from './orders/orders.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    UserComponent
+    HomeComponent,
+    UserComponent,
+    ProfileComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +35,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     NotificationModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MaterialModule,
+    ReactiveFormsModule
   ],
   providers: [AuthenticationGuard, AuthenticationService , NotificationService, 
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi:true}],
