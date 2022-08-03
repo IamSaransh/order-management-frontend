@@ -11,13 +11,13 @@ import { NotificationModule } from './notification.module';
 import { NotificationService } from './service/notification.service';
 import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
-import { UserComponent } from './user/user.component';
+import { PlaceReturnComponent } from './views/home/return/return.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { HomeComponent } from './views/home/home.component';
-import { ProfileComponent } from './profile/profile.component';
-import { OrdersComponent } from './orders/orders.component';
+import { ProfileComponent } from './views/home/profile/profile.component';
+import { OrdersComponent } from './views/home/orders/orders.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +25,7 @@ import { OrdersComponent } from './orders/orders.component';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    UserComponent,
+    PlaceReturnComponent,
     ProfileComponent,
     OrdersComponent
   ],

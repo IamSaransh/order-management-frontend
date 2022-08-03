@@ -5,14 +5,14 @@
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" routerLink="['/returns']" routerLinkActive="active">returns <span class="sr-only">(current)</span></a>
+        <li class="nav-item" routerLinkActive="active"  >
+          <a class="nav-link" [routerLink]="['returns']" routerLinkActive="active">Orders<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" routerLink="['/management']" routerLinkActive="active">Place Return</a>
+            <a class="nav-link" [routerLink]="['management']" routerLinkActive="active">Place a Return</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" routerLink="['/profile']" routerLinkActive="active">Profile<span class="sr-only">(current)</span></a>
+            <a class="nav-link" [routerLink]="['profile']" routerLinkActive="active">Profile<span class="sr-only">(current)</span></a>
         </li>
       </ul>   
       <span class="float-right">

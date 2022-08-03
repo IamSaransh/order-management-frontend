@@ -3,10 +3,10 @@ import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-user',
-  templateUrl: './user.component.html',
-  styleUrls: ['./user.component.css']
+  templateUrl: './return.component.html',
+  styleUrls: ['./return.component.css']
 })
-export class UserComponent implements OnInit {
+export class PlaceReturnComponent implements OnInit {
 
   firstFormGroup = this._formBuilder.group({
     firstCtrl: ['', Validators.required],
