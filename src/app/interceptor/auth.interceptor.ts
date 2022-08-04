@@ -7,7 +7,7 @@ import {
   HttpHeaders
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { AuthenticationService } from '../service/authentication.service';
+import { AuthenticationService } from '../service/auth-service/authentication.service';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
@@ -17,6 +17,7 @@ export class AuthInterceptor implements HttpInterceptor {
   intercept(httpRequest: HttpRequest<any>, httpHandler: HttpHandler): Observable<HttpEvent<any>> {
     //for the login and register we don't want to modify the request. Let it continue its cousrse.
     if(httpRequest.url.includes(`auth/v1/login` )){
+      console.log(httpRequest);
       return httpHandler.handle(httpRequest);
     }
     if(httpRequest.url.includes(`${this.authenticationService.host}/auth/v1/register` )){

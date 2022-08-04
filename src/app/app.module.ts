@@ -4,11 +4,11 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
  
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthenticationService } from './service/authentication.service';
+import { AuthenticationService } from './service/auth-service/authentication.service';
 import { AuthInterceptor } from './interceptor/auth.interceptor';
 import { AuthenticationGuard } from './guard/authentication.guard';
 import { NotificationModule } from './notification.module';
-import { NotificationService } from './service/notification.service';
+import { NotificationService } from './service/notification-service/notification.service';
 import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 import { PlaceReturnComponent } from './views/home/return/return.component';

@@ -29,7 +29,28 @@ body {
 
 .container .mat-card{
   background-color: #ADD8E6;
-  
   margin: 8px;
+}
+
+.mat-grid-tile{
+  background-color: #B4D0E2;
+}
+.mat-grid-tile{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.mat-card-content{
+  padding-top: 20px;
+}
+
+.interaction-card{
+  display: flex;
+  flex-direction: column;
+}
+
+.bottom-button-container{
+  margin-top: 20px;
+  
 }
 

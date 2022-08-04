@@ -1,28 +1,31 @@
-<mat-stepper [linear]="isLinear" #stepper>
+<mat-stepper [linear]="isStepperLinear" #stepper>
   <mat-step [stepControl]="firstFormGroup">
 
 
-    <form [formGroup]="firstFormGroup" >
+    <form [formGroup]="firstFormGroup"  >
       <ng-template matStepLabel>Fill out Component Details</ng-template>
       <div class="div" >
-      <mat-form-field appearance="fill">
+      <mat-form-field appearance="outline">
         <mat-label>Component Name</mat-label>
-        <input matInput>
+        <input matInput formControlName="componentName">
+        <mat-error *ngIf="componentName && componentName.touched && componentName.invalid">Component name is required</mat-error>
       </mat-form-field>
-      <mat-form-field appearance="fill">
+      <mat-form-field appearance="outline">
         <mat-label>Component Type</mat-label>
-        <mat-select>
-          <mat-option value="one">Integral Item</mat-option>
-          <mat-option value="two">Accessory</mat-option>
+        <mat-select formControlName="componentType" name= "componentType">
+          <mat-option *ngFor="let componentType of componentTypes" [value]="componentType.value">
+            {{componentType.viewValue}}
+          </mat-option>
         </mat-select>
       </mat-form-field>
-      <mat-form-field appearance="fill">
+      <mat-form-field appearance="outline">
         <mat-label>Quantity</mat-label>
-        <input matInput>
+        <input matInput formControlName="componentQuantity" type="number">
+        <mat-error *ngIf="componentQuantity && componentQuantity.touched">Component Quantity is required and should be more than one</mat-error>
       </mat-form-field>
     </div>
       <div>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-button matStepperNext  (click)="processReturnRequest()">Next</button>
       </div>
     </form>
 
@@ -31,14 +34,23 @@
   <mat-step [stepControl]="secondFormGroup" label="Get Price Estimation">
 
     <form [formGroup]="secondFormGroup">
-      <div class="container ">
+      <div class="interaction-card" paddinfxLayoutGap="20">
         <mat-card-title>Total Estimates for your order</mat-card-title>
-        <mat-card> requestId </mat-card> 
-        <mat-card> processingCharge </mat-card> 
-        <mat-card> packagingAndDeliveryCharge </mat-card> 
-        <mat-card> dateOfDelivery </mat-card> 
+        <mat-card-content>Looks good</mat-card-content>
       </div>
-      <div>
+      <div class="container" paddinfxLayoutGap="50px">
+        <mat-grid-list cols="2" rowHeight="40">
+          <mat-grid-tile>Request ID</mat-grid-tile>
+          <mat-grid-tile>{{processReturnResponse.requestId}}</mat-grid-tile>
+          <mat-grid-tile>processingCharge</mat-grid-tile>
+          <mat-grid-tile>{{processReturnResponse.processingCharge}}</mat-grid-tile>
+          <mat-grid-tile>packagingAndDeliveryCharge</mat-grid-tile>
+          <mat-grid-tile>{{processReturnResponse.packagingAndDeliveryCharge}}</mat-grid-tile>
+          <mat-grid-tile>dateOfDelivery</mat-grid-tile>
+          <mat-grid-tile>{{processReturnResponse.dateOfDelivery}}</mat-grid-tile>
+        </mat-grid-list>
+      </div>
+      <div class="bottom-button-container">
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button matStepperNext>Next</button>
       </div>
