@@ -76,7 +76,9 @@
             },
             "development": {
               "browserTarget": "return-order-management-client:build:development"
-            }
+            },
+            "proxyConfig": "src/proxy.conf.json"
+
           },
           "defaultConfiguration": "development"
         },
